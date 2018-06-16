@@ -90,12 +90,6 @@ template("rust_crate") {
       args += [ "--emit=obj=" + rebase_path(obj, root_build_dir) ]
     }
 
-    if (crate_type == "lib") {
-      rlib = "$target_out_dir/$target_name.rlib"
-      outputs += [ rlib ]
-      args += [ "--emit=link=" + rebase_path(rlib, root_build_dir) ]
-    }
-
     if (defined(invoker.extra_flags)) {
       args += invoker.extra_flags
     }
